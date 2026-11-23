@@ -1,0 +1,24 @@
+{
+  "name": "at-server",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test test/pipeline.test.js test/learning.test.js test/demo.test.js test/ollama.test.js",
+    "eval": "node ../eval/run_eval.js",
+    "eval:test": "node --test ../eval/lib.test.js ../eval/asset/asset.test.js ../eval/datasets/lib.test.js ../eval/tune.test.js",
+    "asset": "node ../eval/asset/run_asset.js",
+    "ds": "node ../eval/datasets/run.js",
+    "tune": "node ../eval/tune.js",
+    "promote": "node ../eval/promote.js",
+    "demo": "node src/demo-server.js",
+    "ollama:check": "node ../scripts/ollama-check.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": ">=0.60.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1",
+    "mongoose": "^8.5.0"
+  }
+}

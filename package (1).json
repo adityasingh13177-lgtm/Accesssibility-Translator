@@ -1,0 +1,14 @@
+{
+  "name": "accessibility-translator",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "setup": "npm --prefix server install",
+    "doctor": "node scripts/doctor.mjs",
+    "start": "npm --prefix server start",
+    "test": "npm --prefix server test && npm --prefix server run eval:test",
+    "extractor": "python -m uvicorn app:app --app-dir extractor --port 8001",
+    "demo": "node server/src/demo-server.js",
+    "ollama:check": "node scripts/ollama-check.mjs"
+  }
+}

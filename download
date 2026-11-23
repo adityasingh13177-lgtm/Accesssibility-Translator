@@ -1,0 +1,11 @@
+node_modules/
+.env
+__pycache__/
+*.pyc
+eval/datasets/data/*.jsonl
+eval/datasets/data/ocr/
+eval/report.json
+eval/asset/asset_*.jsonl
+.venv/
+server/examples/approved.jsonl
+eval/tune_report.json

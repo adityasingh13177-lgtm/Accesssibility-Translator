@@ -1,0 +1,256 @@
+Addressing Modes
+Introduction
+
+Instruction Format
+The operation (opcode) field of an instruction specifies the operation to be performed. This operation will be executed on some data (operand).
+Address field specifies the computer registers or the main memory, where data/operand is stored.
+The way the operands are chosen during the program execution is dependent on the addressing mode of the instruction.
+Mode
+Opcode
+Address (or Operand)
+
+Address field: contains the information needed to determine the location of the operands and the result of an operation
+Addressing mode: specifies how to interpret the information within this address field, how to compute the actual or effective address of the data needed.
+Definitions:
+The different ways of specifying the location of an operand in an instruction are called as addressing mode
+  The addressing mode specifies a rule for interpreting or modifying the address field of the instruction before the operand is actually referenced.
+
+The purpose of using addressing modes is:
+To give the programming versatility to the user.
+        Pointers to memory, counters for loop, indexing of data, program   relocation, etc.
+To reduce the number of bits in addressing field of instruction.
+
+The address field or fields in a typical instruction format are relatively small. We would like to be able to reference a large range of locations in main memory or, for some tems, virtual memory.
+
+To achieve this objective, a variety of addressing techniques has been employed
+
+Important Points:
+Instruction Cycle
+Fetch the instruction from memory and PC    PC+1
+Decode the instruction
+Execute the instruction
+Program Counter
+PC keeps track of the instructions in the program stored in memory
+PC holds the address of the next instruction to be executed
+PC is incremented each time an instruction is fetched from memory
+
+Addressing mode of the instruction:
+Distinct Binary Code: In some computers the addressing mode of the instruction is specified with a distinct binary code, just like the operation code is specified.
+Single Binary Code: Other computers use a single binary code that designates both the operation and the mode of the instruction.
+
+Effective Address (EA): EA is the actual address of the operand, where it is is actually stored
+
+Types of Addressing Modes
+
+1.  Implied / Implicit Mode             
+2.  Immediate Mode                               
+3.  Direct Mode                         
+4.  Indirect Mode
+5.  Register Direct Mode                                    
+6.  Register Indirect Mode
+Auto-Increment/Auto-Decrement Mode               
+Relative Addressing Mode                 
+Indexed Addressing Mode                  
+ Base Register Addressing Mode
+
+Addressing Modes
+Addressing mode: specifies how to interpret the information within this address field, how to compute the actual or effective address of the data needed.
+The different ways of specifying the location of an operand in an instruction are called as addressing modes.
+The addressing mode specifies a rule for interpreting or modifying the address field of the instruction before the operand is actually referenced
+
+   Instruction Format
+Address (or Operand)
+Mode
+Opcode
+
+1. Implied (or Implicit) Mode
+
+Operands are specified implicitly in the definition of instruction
+Examples:
+CMA: Complement Accumulator
+               ■ Operand in AC is implied in the definition of the instruction
+CLA: Clear Accumulator
+               ■ Operand in AC is implied in the definition of the instruction
+PUSH: Stack Push
+                ■ Operand is implied to be on top of the stack (TOS)
+All register reference instructions that use an accumulator are implied-mode instructions.
+Zero-address instructions in a stack-organized computer are implied-mode instructions since the operands are implied to be on top of the stack.
+
+2. Immediate Mode
+
+Operand are specified in the instruction itself.
+An immediate mode instruction has an operand field rather than the address field.
+Operand field contain the actual operand
+➤ Operand = Address                                                                                                                                                                                                                                  
+                                                         Instruction
+
+Example: LOAD #7                                 // AC ← 7
+                     ADD #5                                  // AC ← AC +5
+
+Useful for initiating registers to a constant value
+                Operand
+
+Opcode
+
+3. Direct Mode
+
+The operand resides in memory and its address is given directly by the address field of instruction.
+Address field of instruction contains the effective address (EA) (or actual address) of operand
+□ EA = A                        Effective address (EA) is equal to the address field (A)
+
+Example:                 ADD A                               //AC ← AC + M[A]
+                                       LOAD B                              // AC ← M[B]
+
+It is also called as absolute addressing mode 
+Advantage
+Simple
+Single (One) memory reference to access data
+No additional calculations to work out effective address
+Disadvantage:
+Address space is limited to the size of the address field
+
+4. Indirect Mode
+ Address field of instruction specifies the address where the effective address of operand is stored in memory
+EA = (A)         or           EA = @A                                                                           Look in A, find address (A) and look there   for operand
+
+Example:     ADD (A)   or   ADD @A           // AC ← AC + M[M[A]]
+
+Advantage:
+Larger address space is possible
+2n  where n = word length
+
+Disadvantage
+Multiple (two) memory reference to find  the operand
+Hence slower
+
+5. Register Mode
+Operand is stored in the register.            (Register resides within the CPU)
+Address field of the instruction refers to a CPU register that contains the operand.
+ EA = Ri
+  A k-bit field can specify any one of 2k registers.
+Example:            MOV R1, R2                        // R1      R2
+No reference to memory is required to fetch the operand.
+Advantages:
+Due to limited number of registers, very small address field 
+Shorter instructions
+No memory reference(access)
+very fast execution
+
+Disadvantages:
+Very limited address space
+Using multiple registers helps performance but it complicates the instructions.
+
+6. Register Indirect Mode
+The address field of instruction specifies the register that contains the effective address of operand. The operand is in memory. 
+ The register contains the effective address of operand rather than the operand itself. 
+                   EA = (Ri)
+   Example:       ADD (R1), R2                          // M[R1]     M[R1] + R2
+Advantages:
+Address field of instruction uses fewer bits to select a memory address
+Large address space: 2n
+One fewer memory access than indirect addressing
+Disadvantages:
+ Extra memory reference
+
+7. Auto-increment/ Auto-decrement Mode
+Similar to register indirect mode (Effective Address of operand is the content of register specified in the instruction) except that
+In Auto-increment: The register is incremented after its value is used to access memory 
+EA= (Ri) +
+In Auto-decrement: The register is decrement before its value is used to access memory
+EA = - (Ri) 
+It is used when the address stored in the register refers to a table of data in memory, it is necessary to increment or decrement the register after every access to the table
+
+Example: (Autoincrement)
+
+1. ADD R1, (R2)+            // R 1     R1+M[R2] ,      R2       R2+1
+
+Example: (Autodecrement)
+
+1. ADD R1, -(R2)                   // R2      R2-1,      R 1      R1+M[R2]
+
+Displacement Addressing
+Few addressing modes requires that the address field of instruction be added to the content of a specific register in the CPU
+          Effective Address = Address part of instruction + content of   CPU   Register (PC/XR/R)
+EA = A + (R)
+ Address field hold two values:
+ A = base value
+ R = register that holds displacement/offset
+          Or vice versa
+ R = base value
+ A = register that holds displacement/offset
+Advantage: Flexibility
+Disadvantage: Complexity
+
+3 versions of displacement addressing:
+
+Relative addressing (EA=PC+A)
+
+2. Indexed addressing (EA=A+XR)
+
+3. Base Register addressing (EA=Ri+A)
+
+8. Relative Addressing Mode
+Register = Program Counter (PC)
+The content of PC is added to the address part of the instruction to obtain the effective address of operand
+      
+ Effective Address = Content of PC + Address part of instruction
+EA = (PC) + A                i.e. The operand is A bytes away from current location pointed to by PC 
+
+Example:
+                 LOAD $A        or      LOAD A(PC)                // AC ← M[PC + A]
+Address location is relative to "PC", this is called Relative Mode.
+Useful for specifying target addresses in branch-type instructions
+
+9. Indexed Addressing Mode
+Register = Index Register
+The content of Index Register is added to the address part of the instruction to obtain the effective address of operand
+ Effective Address = Content of XR + Address part of    instruction
+
+EA = A + (XR)                     or                    EA = A + (Ri)
+A contains a constant value in the instruction
+XR/Ri is the name of register involved holds index value
+Index register used here is either a special CPU register (XR) provided for this purpose or commonly, it may be anyone of a set of general purpose registers (Ri) in the processor; that contain an index value.
+
+Example: 
+                        ADD R1, 20(R2)                          // R1 R1 + M[20 + R1]
+
+                        ADD R1, 100(XR)                     // R1R1 + M[100 + XR]
+
+Index register holds an index number that is relative to the address part of the instruction 
+Good for accessing Arrays (beginning address of data array in address part & index number in index register.
+
+10. Base Register Addressing Mode
+Similar to indexed addressing except that the register is now called a base register 
+   Register = Base Register 
+The content of Base Register is added to the address part of the instruction to obtain the effective address of operand
+       Effective Address = Content of BR + Address part of instruction
+EA = (Ri) + A 
+Ri is base register that holds base address
+A holds a displacement relative to this base address
+
+Example: 
+                   LOAD A(R1)                 // R1      M[R1 + A]
+
+                 ADD R1, 20(R2)             // R1       R1 + M[R2 + 20]
+
+Useful in computers to facilitate the relocation of programs in memory
+
+Difference between Index and Base register address
+The difference between these two modes is in the way they are used rather than in the way that they are computed
+Index register (XR):
+Index register hold an index number that is relative to the  address part of the instruction
+Base register (BR):
+Base register hold a base address
+Address part of the instruction gives the displacement relative to the base address.
+
+Summary: Addressing Modes
+Implied / Implicit : Operands specified implicitly
+Immediate: Operand value in address field
+Direct : EA is in address part of the instruction
+Indirect: EA is stored in memory location specified in address part of the instruction
+Register Direct: Operand is in register
+Register Indirect: Register contains indirect address
+Auto-Increment/Auto-Decrement: Like register indirect except register value is incremented or decremented after or before it is used
+Relative Addressing: PC is added to address part
+Indexed Addressing: Value of index register added to address part of the instructions to yield EA
+Base-Register Addressing: Same as index addressing but the name of register is base register

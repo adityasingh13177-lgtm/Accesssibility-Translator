@@ -1,0 +1,41 @@
+
+COMPUTER ORGANISATION
+A BRIEF OUTLINE
+
+The term 'Computer Organization' refers to the operational units of the computer and their interconnections.
+The main hardware units are the CPU, memory, I/0 units, etc. The hardware details such as various computational units, control signals, interfaces between computer peripherals, and the memory technology used are included in the organization of the computer.
+Therefore, it can be said that the hardware units and their connection details cover the organization of the computer system.
+
+COMPUTER ARCHITECTURE
+A BRIEF OUTLINE
+
+By the term 'Computer architecture', it is generally meant those qualities of a system that are visible to a programmer, such as the number of bits used to represent various data types, the instruction set of the computer, techniques for addressing memory, methods used for input-output, etc.
+These qualities are known as architectural qualities and have an effect on the execution of a program.
+In short, the quality associated with the functioning of software is linked to computer architecture whereas those associated to hardware aspects of the computer are related to computer organization.
+
+WHATS THE TECHNICAL DIFFERENCE?
+COMPUTER                                                          COMPUTER 
+ORGANISATION                               VS                ARCHITECTURE
+
+CO  V/S  CA 
+COMPUTER ORGANIZATION
+
+Often called microarchitecture (low level)
+Transparent from programmer (ex. a programmer does not worry much how addition is implemented in hardware)
+COMPUTER ARCHITECTURE
+
+Computer architecture (a bit higher level)
+Programmer view ( Programmer has to be aware of which instruction set used)
+→
+←
+
+COMPUTER ORGANIZATION
+
+3. Physical components (Circuit design, Adders, Signals, Peripherals) 
+4. How to do? (implementation of the architecture)
+COMPUTER ARCHITECTURE
+
+3. Logic (Instruction set, Addressing modes, Data types, Cache optimization) 
+4. What to do? (Instruction set)
+→
+←

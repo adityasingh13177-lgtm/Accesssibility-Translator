@@ -1,0 +1,71 @@
+Basic Operational Concept
+
+Introduction
+Basic Function of computer:
+Computer is governed by instructions
+To perform a given task an appropriate program consisting of a list of instructions is stored in the memory.
+Individual instructions are brought from the memory into the processor, which executes the specified operations. Data to be stored are also stored in the memory.
+
+A Typical Instruction:
+
+Example:
+                     Add  R0, LOCA                     // R0 ← R0 + M [LOCA]
+
+This instruction adds the operand at memory location LOCA, to operand in register R0 in the processor & places the sum into register.
+The original content of LOCA is preserved and the original content of R0 is overwritten
+This instruction requires following steps,
+1st the instruction is fetched from the memory into the processor.
+2nd the operand at LOCA is fetched and added to the contents of R0
+3rd the resulting sum is stored in the register R0
+The preceding add instruction combines a Memory access operation with an ALU operations.
+
+An alternative way to implement the instruction:
+Separate memory access operation with an ALU operations.
+In some modern computers, the same task is performed using two separate instructions for performance reasons.
+
+          Load R1, LOCA                       //R1 ← M [LOCA]
+          Add RO, R1                             // RO ←RO + R1
+
+Connection between the Processor and the Memory
+Processor Contains:
+ALU (Arithmetic and Logic Unit)
+Control Unit
+Registers
+
+Registers:
+(Registers are fast, small standalone storage locations that hold data temporarily. Multiple registers are needed to facilitate the operation of the CPU)
+Instruction register (IR): Holds the instruction that is currently being executed. Its content is available for the control circuits which generates the timing signals that control the various processing elements in one execution of instruction.
+Program Counter (PC): A specialized register that keeps track of execution of a program. It contains the memory address of the next instruction to be fetched and executed.
+General-purpose register (Ro-R-1): There are n-general purpose registers RO through Rn-1 used to store operands
+
+The other two registers MAR & MDR handles data transfer (communication) between memory and processor:
+
+MAR (Memory Address Register): It holds the address of the memory location to be accessed.
+MDR (Memory Data Register): It contains the data to be written into or read out of the addressed memory location.
+
+Typical Operating steps:
+Programs reside in the memory through the I/P unit.
+Execution of the program starts when, the PC is set to point at the first instruction of the program.
+The contents of PC are transferred to MAR and a Read Control Signal is sent to the memory.
+The addressed word (i.e. instruction) is read out (or fetch) of the memory and loaded into the MDR.
+The contents of MDR are transferred to the IR
+The instruction in IR is decoded (by which processor understands what operation is performed).
+If the instruction involves an ALU operation, it obtains the required operands. (from GPRs or Memory)
+
+If an operand is in the General purpose Register, (GPRs) it is transferred to the ALU for operation
+If an operand is in the memory, it is fetched by sending its address to MAR & Initiating a Read cycle.
+When operand has been read from the memory into the MDR, it is transferred from MDR to the ALU.
+When all operands are available, the ALU performs the desired operation.
+Results are stored back to GPRS or memory
+If the result of this operation is to be stored in the memory, the result is sent to MDR.
+Address of location where the result is stored is sent to MAR & a Write cycle is initiated.
+
+Interrupts:
+Normal execution of a program may be preempted (interrupted) if some devices require urgent servicing, to do this the device raises an Interrupt signal.
+An interrupt is a high-priority request signal generated from an I/O device or a software program for the immediate service by the processor.
+Eg: Printer out of paper, Power failure, divide by zero, I/O device requesting fro data transfer
+Interrupt Handling:
+The processor provides the requested service by executing an appropriate Interrupt Service Routine (ISR).
+The state of the processor (content of PC, general-purpose registers, control information, specific information) must be saved in the memory location before servicing the interrupt. When the interrupt-routine service is completed the state of the processor is restored so that the interrupted program may continue.
+
+Summary: Instruction Execution

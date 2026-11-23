@@ -1,0 +1,6 @@
+[
+  { "name": "baseline", "useExamples": false, "extraRules": "" },
+  { "name": "with-approved-examples", "useExamples": true, "extraRules": "" },
+  { "name": "strict-not-found", "useExamples": true, "extraRules": "7. Before you answer, re-read every item in notFound: keep it only if the document truly never states it. Never list something the document does state." },
+  { "name": "steps-from-document-only", "useExamples": true, "extraRules": "7. actionSteps must come from instructions in the document. If it gives none, return an empty actionSteps list and do not invent advice." }
+]

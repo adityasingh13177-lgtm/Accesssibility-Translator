@@ -1,0 +1,73 @@
+Computer organization
+and architecture
+
+Computer Organization and Architecture is the study of internal working, structuring, and implementation of a computer system. Architecture in the computer system, same as anywhere else, refers to the externally visual attributes of the system. Externally visual attributes, here in computer science, mean the way a system is visible to the logic of programs (not the human eyes!). Organization of a computer system is the way of practical implementation that results in the realization of architectural specifications of a computer system. In more general language, the Architecture of a computer system can be considered as a catalog of tools available for any operator using the system, while Organization will be the way the system is structured so that all those cataloged tools can be used, and efficiently.
+
+CPU Architecture
+The CPU consists of three major components, namely ALU, control unit, and memory or storage unit.
+
+1. Memory or Storage Unit
+
+We usually hear people talking about the RAM of their computers, laptops, and smartphones. The memory or storage unit is what the RAM actually is. It is the component of the CPU that stores data, instructions, and the intermediate and final results of the instructions. In addition to storage, it is also responsible for transferring data to other components of the CPU as and when requested.
+We also refer to the memory or storage unit as the main memory, primary storage, or Random Access Memory (RAM). The size of the RAM or memory unit significantly affects the CPU's performance, speed, and power.
+
+A memory unit or primary memory is responsible for storing:
+
+Instructions and data required for processing.
+Intermediate results of any task that is in process.
+Final results before releasing them to the output device for users.
+
+The primary memory is the volatile memory since it holds only the data and instructions the CPU is currently processing. Consequently, we also refer to it as the temporary memory. It got the name ‘volatile memory’ because it loses all the data it holds if the power supply cuts off.
+
+2. Control Unit
+
+As its name indicates, the control unit is responsible for controlling all the parts of a computer. However, it does not perform any data processing operations.
+Basically, it leverages electrical signals to instruct the computer to execute the instructions stored in the RAM. The instructions are taken from the main memory, decoded, and then executed.
+Additionally, the control unit's principal responsibility is to keep data flowing smoothly through the processor.
+
+The following are some of the major functions of the control unit:
+
+It supervises and regulates the data flow in the CPU.
+It regulates the exchange of data between the CPU and other devices.
+The control unit is also in charge of managing other execution units, such as ALU, data buffers , and registers in the process.
+It transfers data or results from the memory unit to other input and output devices.
+It oversees all of the computer units.
+The control unit neither stores nor processes data.
+
+3. Arithmetic Logic Unit
+The last component of the CPU is ALU, which is an acronym for Arithmetic Logic Unit. As its name implies, it is a unit for carrying out arithmetic and logical operations. Addition, subtraction, multiplication, and division are among the arithmetic operations. Meanwhile logical operations include comparisons, selection of data, matching, and merging of data. It is possible for the CPU to have one or multiple ALUs.
+Furthermore, ALU has two sections, namely the arithmetic and logic sections. While the arithmetic section takes care of arithmetic operations, the logic section handles logical operations.
+
+Types of CPU
+Processors developed by Intel and AMD have dominated the market since the invention of the CPU. So, while buying any device, specifically a desktop or laptop, people often consider only two choices when it comes to the CPU, and those choices are Intel and AMD.
+However, only considering the manufacturers is not enough. The number of CPU cores is the foremost factor people consider while choosing the CPU. A CPU core is a processing unit responsible for reading instructions and performing specified actions. The more the number of cores a CPU has, the maximum is the performance of the system.
+The following are some major types of CPUs classified based on the number of cores they have:
+
+1. Single-Core
+A single-core CPU is one of the oldest types of CPU with only a single core. It is capable of accepting only one command at a time since it has a single core. As a result, it cannot perform multiple tasks at a time.
+The primary idea of a single-core processor is that while one process is executing, the other process should wait until the first one completes. However, your device’s performance will be significantly lower if you try to run multiple processes. In fact, the processor moves back and forth between the sets of data streams if you run more than one application on your device.
+Furthermore, clock speed is the primary factor in determining the performance of single-core processors. It is a measure of how many instructions a CPU can carry out in a second, expressed in gigahertz.
+
+2. Dual-Core
+
+A dual-core processor is a CPU with two separate processing units combined into one integrated circuit (IC). There is a controller and cache specific to each processing unit. However, both the processing units work collectively to enhance the performance of the system. Moreover, dual-core processors facilitate multi-tasking and are faster than single-core processors.
+
+3. Quad-Core
+
+As dual-core processors have two separate processing units, quad-core processors have four. Quad-core processors combine the four independent processing units into a single integrated circuit (IC). In terms of multi-tasking, the processors with four cores outperform the processors with two cores.
+With each core being able to read and perform instructions, quad-core processors can effectively execute multiple instructions simultaneously. As a result, without enhancing clock speed, quad-core processors can generate high performance. However, you should know that the performance boosts only if your computer is compatible with multi-processing.
+
+Some Other Types
+
+Hexa-Core
+Similarly, there are hexa-core processors with six independent cores that are faster and more effective than quad-core and dual-core processors.
+Octa-Core
+The next type of CPU is an octa-core processor, having eight separate processing units. This type of CPU is faster than all other types of processors mentioned earlier. Generally, octa-core processors consist of two independent quad-core processors.
+Deca-Core
+Deca-core processors have ten independent cores, which combine one quad-core processor and one hexa-core processor. They are faster than any other processor and offer effective multitasking.
+
+Conclusion
+
+A CPU or processor is at the core of a very digital device, without which it would be impossible for devices to operate. With three major components, namely the main memory, control unit, and ALU, a processor runs all the instructions it gets from the hardware and software of the computer.
+
+While the main memory stores instructions, data, and results, the control unit fetches instructions and executes them after deciding and transfers data and results from the memory to input and output devices. ALU carries out arithmetic and logic operations.
