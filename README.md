@@ -17,11 +17,6 @@ Accessibility Translator is a web application that takes a **PDF, a photo of a d
 
 It is built for people who can open an official notice, bill or form but find it hard to understand: students, older readers, people with low digital literacy, and readers with dyslexia or low vision.
 
-<p align="center">
-  <img src="docs/images/results-page.png" alt="Results page showing a simple explanation, key facts, next steps, items not found in the document and a question box" width="640">
-  <br>
-  <sub>The results page, shown here with the built-in demo engine (rule-based, not AI).</sub>
-</p>
 
 **Status:** prototype, built as an Independent Project (B.Tech CSE, Data Science). English only for now. See [Limitations and roadmap](#limitations-and-roadmap).
 
