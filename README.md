@@ -134,7 +134,7 @@ flowchart LR
 You need **Node.js 18 or newer**. Commands below are for Windows PowerShell; macOS and Linux differ only where noted.
 
 ```bash
-git clone https://github.com/<your-username>/accessibility-translator.git
+git clone https://github.com/<adityasingh13177-lgtm>/accessibility-translator.git
 cd accessibility-translator
 ```
 
